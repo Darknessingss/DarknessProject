@@ -332,6 +332,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108159486}
   m_CullTransparentMesh: 1
+--- !u!1 &310870359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 310870361}
+  - component: {fileID: 310870360}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &310870360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310870359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1552c80f69324404cb2ed682df745224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroMovementActions: {fileID: -944628639613478452, guid: 639e7fde65b0a0240915f0e8ef250e22, type: 3}
+  cameraController: {fileID: 330585548}
+  carController: {fileID: 1839110890}
+  playerController: {fileID: 1220928177}
+--- !u!4 &310870361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310870359}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.082176745, y: 0.7238834, z: -2.8124094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +393,6 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
-  - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: CameraHero
   m_TagString: MainCamera
@@ -489,84 +536,8 @@ MonoBehaviour:
   _maxZoomDistance: 20
   _minVerticalAngle: -80
   _maxVerticalAngle: 80
---- !u!114 &330585549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 639e7fde65b0a0240915f0e8ef250e22, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3334b5ea-6d5d-4184-896d-14eaef180c0c
-    m_ActionName: 'HeroesController/MovementPlayerBase[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 514ea833-da1b-489b-a5e5-5f8210f0f6c9
-    m_ActionName: 'HeroesController/JumpPlayerBase[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 54e29b31-e092-4f51-8c6b-b1e49ec44f58
-    m_ActionName: 'CarController/CarMovementBase[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 886d597a-b6ee-432c-aa31-4dec7ed097e7
-    m_ActionName: 'CarController/Exit[/Keyboard/escape]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 330585548}
-        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
-        m_MethodName: OnLook
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: c23c6bc1-11c3-45f8-818a-5c7efddf228f
-    m_ActionName: 'CameraController/CameraLook[/Mouse/delta]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 330585548}
-        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
-        m_MethodName: OnZoom
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 04b15718-01c5-459d-800a-b159809c1829
-    m_ActionName: 'CameraController/Zoom[/Mouse/scroll]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: CameraController
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  _mouseDelta: {x: 0, y: 0}
+  _zoomInput: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,7 +1765,6 @@ GameObject:
   - component: {fileID: 1839110886}
   - component: {fileID: 1839110888}
   - component: {fileID: 1839110890}
-  - component: {fileID: 1839110891}
   m_Layer: 0
   m_Name: CarModel
   m_TagString: Car
@@ -1857,84 +1827,8 @@ MonoBehaviour:
   _speed: 10
   _turnSpeed: 50
   _interactionRadius: 5
---- !u!114 &1839110891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839110885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 639e7fde65b0a0240915f0e8ef250e22, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3334b5ea-6d5d-4184-896d-14eaef180c0c
-    m_ActionName: 'HeroesController/MovementPlayerBase[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 514ea833-da1b-489b-a5e5-5f8210f0f6c9
-    m_ActionName: 'HeroesController/JumpPlayerBase[/Keyboard/space]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1839110890}
-        m_TargetAssemblyTypeName: CarController, Assembly-CSharp
-        m_MethodName: OnDrive
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 54e29b31-e092-4f51-8c6b-b1e49ec44f58
-    m_ActionName: 'CarController/CarMovementBase[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1839110890}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 886d597a-b6ee-432c-aa31-4dec7ed097e7
-    m_ActionName: 'CarController/Exit[/Keyboard/escape]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c23c6bc1-11c3-45f8-818a-5c7efddf228f
-    m_ActionName: 'CameraController/CameraLook[/Mouse/delta]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 04b15718-01c5-459d-800a-b159809c1829
-    m_ActionName: 'CameraController/Zoom[/Mouse/scroll]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: CarController
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  _driveInput: {x: 0, y: 0}
+  _isDriving: 0
 --- !u!1001 &2377086727331417626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1969,7 +1863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169755823052551451, guid: 598c5ee4952dd854ead1c91ac02603de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.22
+      value: -2.27
       objectReference: {fileID: 0}
     - target: {fileID: 3169755823052551451, guid: 598c5ee4952dd854ead1c91ac02603de, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2235,3 +2129,4 @@ SceneRoots:
   - {fileID: 1057542202}
   - {fileID: 330585546}
   - {fileID: 1839110886}
+  - {fileID: 310870361}
