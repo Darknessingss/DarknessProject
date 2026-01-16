@@ -1,0 +1,273 @@
+{
+    "version": 1,
+    "name": "HeroMovement",
+    "maps": [
+        {
+            "name": "HeroesController",
+            "id": "83b9a61b-fb76-49f7-89fd-5db021798520",
+            "actions": [
+                {
+                    "name": "MovementPlayerBase",
+                    "type": "Value",
+                    "id": "3334b5ea-6d5d-4184-896d-14eaef180c0c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "JumpPlayerBase",
+                    "type": "Button",
+                    "id": "514ea833-da1b-489b-a5e5-5f8210f0f6c9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "WASD",
+                    "id": "9e8f6d45-31f5-4934-bf0a-9019fa2a6a52",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovementPlayerBase",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "f78d617d-cb83-4e6a-ac7c-6aae8b242268",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboarding",
+                    "action": "MovementPlayerBase",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "da275061-820e-4f0d-b6eb-5f6e66e99028",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboarding",
+                    "action": "MovementPlayerBase",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "437ce38f-88da-4be1-95ea-016800ce2271",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboarding",
+                    "action": "MovementPlayerBase",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "afaea216-8990-4206-9498-63fc2d6612a2",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboarding",
+                    "action": "MovementPlayerBase",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f574e4d3-8b43-4838-a1e4-96fe68b5e91e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboarding",
+                    "action": "JumpPlayerBase",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "CarController",
+            "id": "31f9b62e-30d4-44af-88fa-58f6860a68d3",
+            "actions": [
+                {
+                    "name": "CarMovementBase",
+                    "type": "Value",
+                    "id": "54e29b31-e092-4f51-8c6b-b1e49ec44f58",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "886d597a-b6ee-432c-aa31-4dec7ed097e7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "WASD",
+                    "id": "95a3ae1e-1b51-4668-a9e3-9ad2fe4499ea",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CarMovementBase",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "2e2889f2-34a9-4133-97ee-0d8674b0976f",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";CarKeyboard",
+                    "action": "CarMovementBase",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "7bc1325c-c443-4e1b-9968-8f7a36254efb",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";CarKeyboard",
+                    "action": "CarMovementBase",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "1fd4a662-e126-47b0-8d03-3bb7ee40e212",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";CarKeyboard",
+                    "action": "CarMovementBase",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "f5685a02-dab3-40ae-b420-e2bab33fbb78",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";CarKeyboard",
+                    "action": "CarMovementBase",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "66033610-4206-4d45-b485-e8dd84483d2c",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";CarKeyboard",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "CameraController",
+            "id": "c1260626-e7a1-4b76-8487-0691640d3fa4",
+            "actions": [
+                {
+                    "name": "CameraLook",
+                    "type": "Value",
+                    "id": "c23c6bc1-11c3-45f8-818a-5c7efddf228f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Zoom",
+                    "type": "Value",
+                    "id": "04b15718-01c5-459d-800a-b159809c1829",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "24f63829-c6cc-46e8-b131-858c653a7989",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";CameraController",
+                    "action": "CameraLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4746ac08-dea1-4ab9-accd-cce7467e9840",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";CameraController",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboarding",
+            "bindingGroup": "Keyboarding",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "CarKeyboard",
+            "bindingGroup": "CarKeyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "CameraController",
+            "bindingGroup": "CameraController",
+            "devices": [
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
