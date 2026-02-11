@@ -2,17 +2,29 @@ using UnityEngine;
 
 public class PlayerContMove : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _jumpForce = 5f;
     [SerializeField] private float _gravity = -10f;
-    [SerializeField] private float _groundCheckDistance = 0.2f;
-    [SerializeField] private float _minHeight = 0.3f;
+    [SerializeField] private float _groundCheckDistance = 0.3f;
+    [SerializeField] private float _playerHeight = 1.0f; // Высота игрока
 
     public Vector2 _moveInput;
     public bool _jumpPressed;
 
     private float _verticalVelocity;
     private bool _isGrounded;
+    private Collider _collider;
+
+    private void Start()
+    {
+        _collider = GetComponent<Collider>();
+
+        if (_collider != null)
+        {
+            _playerHeight = _collider.bounds.size.y;
+        }
+    }
 
     private void Update()
     {
@@ -22,40 +34,58 @@ public class PlayerContMove : MonoBehaviour
         CheckGround();
         HandleGravity();
 
-        if (transform.position.y < _minHeight)
-        {
-            transform.position = new Vector3(transform.position.x, _minHeight, transform.position.z);
-            _verticalVelocity = 0;
-            _isGrounded = true;
-        }
-
         Move();
         Jump();
     }
 
     private void CheckGround()
     {
-        Ray ray = new Ray(transform.position, Vector3.down);
-        _isGrounded = Physics.Raycast(ray, _groundCheckDistance);
+        Vector3 rayOrigin = transform.position - Vector3.up * (_playerHeight * 0.45f);
+
+        Ray ray = new Ray(rayOrigin, Vector3.down);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, _groundCheckDistance))
+        {
+            if (hit.collider.CompareTag("Ground"))
+            {
+                _isGrounded = true;
+                Debug.DrawRay(rayOrigin, Vector3.down * _groundCheckDistance, Color.green);
+
+                float groundY = hit.point.y + (_playerHeight * 0.5f);
+                transform.position = new Vector3(transform.position.x, groundY, transform.position.z);
+            }
+            else
+            {
+                _isGrounded = false;
+                Debug.DrawRay(rayOrigin, Vector3.down * _groundCheckDistance, Color.yellow);
+            }
+        }
+        else
+        {
+            _isGrounded = false;
+            Debug.DrawRay(rayOrigin, Vector3.down * _groundCheckDistance, Color.red);
+        }
     }
 
     private void HandleGravity()
     {
-        if (!_isGrounded)
-        {
-            _verticalVelocity += _gravity * Time.deltaTime;
-        }
-        else if (_verticalVelocity < 0)
+        _verticalVelocity += _gravity * Time.deltaTime;
+
+        _verticalVelocity = Mathf.Max(_verticalVelocity, -20f);
+        transform.position += Vector3.up * _verticalVelocity * Time.deltaTime;
+
+        if (_isGrounded && _verticalVelocity < 0)
         {
             _verticalVelocity = 0;
         }
-
-        transform.position += Vector3.up * _verticalVelocity * Time.deltaTime;
     }
 
     private void Move()
     {
         Vector3 direction = new Vector3(_moveInput.x, 0, _moveInput.y);
+        direction = direction.normalized;
+
         transform.position += direction * _speed * Time.deltaTime;
 
         if (direction.magnitude > 0.1f)
