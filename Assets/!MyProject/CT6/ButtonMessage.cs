@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ButtonMessage : MonoBehaviour
 {
-    [SerializeField] private string messageText = "Button Activated";
+    [SerializeField] private string messageText = "›ÚÓ Ó·Ï‡ÌÍ‡, !!!’¿’¿’¿’¿!!!";
 
     private bool isActivated = false;
 

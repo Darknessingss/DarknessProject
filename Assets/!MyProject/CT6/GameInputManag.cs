@@ -60,8 +60,9 @@ public class GameInputManag : MonoBehaviour
     {
         if (playerMoveAction != null)
             playerMoveInput = playerMoveAction.ReadValue<Vector2>();
+
         if (playerJumpAction != null)
-            playerJumpPressed = playerJumpAction.ReadValue<float>() > 0.5f;
+            playerJumpPressed = playerJumpAction.WasPressedThisFrame();
     }
 
     private void HandleInput()

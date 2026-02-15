@@ -7,7 +7,7 @@ public class ButtonWall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Box") || other.CompareTag("Player"))
         {
             if (targetObject != null)
             {
@@ -19,7 +19,7 @@ public class ButtonWall : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Box") || other.CompareTag("Player"))
         {
             if (targetObject != null)
             {

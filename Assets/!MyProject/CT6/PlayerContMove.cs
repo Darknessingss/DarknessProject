@@ -3,11 +3,14 @@ using UnityEngine;
 public class PlayerContMove : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float _speed = 5f;
-    [SerializeField] private float _jumpForce = 5f;
+    [SerializeField] private float _speed = 6f;
+    [SerializeField] private float _jumpForce = 6f;
     [SerializeField] private float _gravity = -10f;
-    [SerializeField] private float _groundCheckDistance = 0.3f;
-    [SerializeField] private float _playerHeight = 1.0f; // Высота игрока
+    [SerializeField] private float _groundCheckDistance = 0.1f;
+    [SerializeField] private float _playerHeight = 1.0f;
+
+    [Header("Camera Settings")]
+    [SerializeField] private Transform _cameraTransform;
 
     public Vector2 _moveInput;
     public bool _jumpPressed;
@@ -15,6 +18,7 @@ public class PlayerContMove : MonoBehaviour
     private float _verticalVelocity;
     private bool _isGrounded;
     private Collider _collider;
+    private Vector3 _cameraOffset;
 
     private void Start()
     {
@@ -23,6 +27,16 @@ public class PlayerContMove : MonoBehaviour
         if (_collider != null)
         {
             _playerHeight = _collider.bounds.size.y;
+        }
+
+        if (_cameraTransform == null && Camera.main != null)
+        {
+            _cameraTransform = Camera.main.transform;
+        }
+
+        if (_cameraTransform != null)
+        {
+            _cameraOffset = _cameraTransform.position - transform.position;
         }
     }
 
@@ -36,6 +50,14 @@ public class PlayerContMove : MonoBehaviour
 
         Move();
         Jump();
+    }
+
+    private void LateUpdate()
+    {
+        if (_cameraTransform != null)
+        {
+            _cameraTransform.position = transform.position + _cameraOffset;
+        }
     }
 
     private void CheckGround()
@@ -71,7 +93,6 @@ public class PlayerContMove : MonoBehaviour
     private void HandleGravity()
     {
         _verticalVelocity += _gravity * Time.deltaTime;
-
         _verticalVelocity = Mathf.Max(_verticalVelocity, -20f);
         transform.position += Vector3.up * _verticalVelocity * Time.deltaTime;
 
