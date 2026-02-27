@@ -1,7 +1,5 @@
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.MaterialProperty;
 
 public class ScriptHeroDOT : MonoBehaviour
 {
@@ -94,7 +92,7 @@ public class ScriptHeroDOT : MonoBehaviour
             .SetEase(moveCurve)
             .OnComplete(() => isMoving = false);
 
-        DG.Tweening.Sequence moveSequence = DOTween.Sequence();
+        Sequence moveSequence = DOTween.Sequence();
         moveSequence.Append(transform.DOScaleY(0.8f, moveDuration / 3));
         moveSequence.Append(transform.DOScaleY(1f, moveDuration / 3));
         moveSequence.SetEase(Ease.OutQuad);
