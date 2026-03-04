@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Car
   - Box
+  - VolumeSlider
   layers:
   - Default
   - TransparentFX
